@@ -1,0 +1,21 @@
+.product{
+    margin-bottom: 4px;
+    margin-top: 4px;
+    width: 800px;
+    min-height: 300px;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.main
+{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
