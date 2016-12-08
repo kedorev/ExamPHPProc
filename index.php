@@ -19,7 +19,7 @@ $names = getAllName();
         <?php
             include "header.php";
         ?>
-            A webshop for sell some minerals ( or other )
+            A webshop for sell nothing like everythings
         </div>
     </body>
 </html>
