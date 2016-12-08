@@ -10,20 +10,20 @@
 
 <nav class="menu">
     <ul id="menu-demo2">
-        <li><a href="<?php echo urlSite?>">Accueil</a>
+        <li><a href="<?php echo urlSite?>">Home</a>
 
         </li>
-        <li><a href="listProduct.php">Liste produit</a>
+        <li><a href="listProduct.php">List product</a>
             <ul>
-                <li><a href="listAme.php">Amethyste</a></li>
+                <li><a href="amethyste.php">Amethyste</a></li>
             </ul>
         </li>
         <?php
             if(isset($_SESSION['USER']))
             {
-                echo "<li><a href=\"#\">User</a>
+                echo "<li><a href=\"user.php\">User</a>
                     <ul>
-                        <li><a href=\"#\">User information</a></li>
+                        <li><a href=\"cart.php\">Cart information</a></li>
                         <li><a href=\"PHPCall/logout.php\">Logout</a></li>
                     </ul>
                 </li>";
@@ -32,6 +32,18 @@
             {
                 echo "<li><a href=\"login.php\">Login</a>";
             }
+        if(isset($_SESSION['USER']))
+        {
+            if($_SESSION['USER'] == "admin")
+            {
+            echo "<li><a href=\"\">Admin</a>
+                    <ul>
+                        <li><a href=\"Admin/addProduct.php\">Add product</a></li>
+                    </ul>
+                </li>";
+            }
+        }
         ?>
+
     </ul>
 </nav>

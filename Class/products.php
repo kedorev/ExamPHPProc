@@ -6,7 +6,6 @@
  * Time: 11:12
  */
 
-define("productPath", "Products/");
 
 function addNewProduct($name)
 {
@@ -23,6 +22,7 @@ function addData($name,$key,$value)
         }
         else
         {
+            var_dump(productPath.$name);
             file_put_contents(productPath.$name,$key.selector.$value."|");
         }
     }
@@ -43,6 +43,11 @@ function addData($name,$key,$value)
 function addPrice($name,$price)
 {
     addData($name,"price",$price);
+}
+
+function addQuantity($name,$quantity)
+{
+    addData($name,"quantity",$quantity);
 }
 
 function getAllName()
@@ -66,17 +71,18 @@ function addImage($name,$imageURL)
 
 function generateProductTemplating($name)
 {
-    echo "<div class='product'>";
+    echo "<article class='product'>";
         echo "<div class='image'>";
             echo "<img src=\"". getImageURLBName($name) ."\">";
         echo "</div>";
         echo "<form action=\"PHPCall/addCart.php\" method=\"post\">
                 <fieldset>
-                    <H2>".$name."</H2>". getPriceByName($name). " €
-                    <p>
+                    <H2>".$name."</H2>". getPriceByName($name). " €<br/> Quantity available : ".
+                    getQuantityByName($name)
+                    ."<p>
                         <input type=\"hidden\" name=\"name\" id=\"name\" value=\"".$name."\"/>
                         <label for=\"Quantity\">Quantity :</label>
-                        <input type=\"text\" name=\"Quantity\" id=\"Quantity\" placeholder=\"How many products ?.\"/>
+                        <input type=\"text\" name=\"Quantity\" id=\"Quantity\" placeholder=\"How many products ?\"/>
                     </p>";
                     if(isset($_SESSION['USER']))
                         echo "<input type=\"submit\" name=\"submit\" value=\"Add to cart\" />";
@@ -84,7 +90,7 @@ function generateProductTemplating($name)
                     echo "</p>
                 </fieldset>
             </form>";
-    echo "</div>";
+    echo "</article>";
 }
 
 function getDataByName($name,$dataSearch)
@@ -99,7 +105,7 @@ function getDataByName($name,$dataSearch)
         $datas = preg_split("/[|]+/", $content);
         foreach ($datas as $data)
         {
-            $split = (preg_split("/[#]+/", $data)); echo "<br/>";
+            $split = (preg_split("/[#]+/", $data));
             if($split[0] == $dataSearch){return $split[1];}
         }
     }
@@ -108,4 +114,9 @@ function getDataByName($name,$dataSearch)
 function getImageURLBName($name)
 {
     return getDataByName($name,"image");
+}
+
+function getQuantityByName($name)
+{
+    return getDataByName($name,"quantity");
 }

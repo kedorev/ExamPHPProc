@@ -19,3 +19,13 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
+.error
+{
+    background-color: #bb4242;
+    width: 800px;
+    text-align: center;
+    text-decoration: blink;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

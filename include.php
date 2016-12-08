@@ -10,3 +10,5 @@ session_start();
 require "constant.php";
 require "Class/products.php";
 require "Class/User.php";
+require "Class/Cart.php";
+require "Class/tool.php";

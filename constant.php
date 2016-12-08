@@ -8,3 +8,5 @@
 
 define('selector','#');
 define('urlSite','http://192.168.33.10/');
+define('rootPath',"/var/www/html/");
+define('productPath', rootPath."Products/");

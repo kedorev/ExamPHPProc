@@ -14,7 +14,6 @@ if(isset($_POST['login']))
 {
     echo "est";
     $_SESSION['USER'] = $_POST['login'];
-    $_SESSION['CART'] = array();
     $path = "Location: ".urlSite;
     header($path);
 

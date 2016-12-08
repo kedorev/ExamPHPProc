@@ -25,10 +25,18 @@ array_push($products,array(
     'image'=> "http://minerama.fr/2147-large_default/calcite-orange-mexique.jpg"
     ));
 
+array_push($products,array(
+    'name'=>'Fluorite',
+    'price'=>23,
+    'quantity'=>17,
+    'image'=> "http://minerama.fr/4553-large_default/fluorite-mauve-chine.jpg"
+    ));
+
 
 foreach ($products as $product)
 {
     addNewProduct($product['name']);
     addPrice($product['name'],$product['price']);
     addImage($product['name'],$product['image']);
+    addQuantity($product['name'],$product['quantity']);
 }
